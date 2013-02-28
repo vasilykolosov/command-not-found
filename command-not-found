@@ -34,7 +34,7 @@ def enable_i18n():
         #   Fixing the case when remote system sends incorrect LC_CTYPE via SSH
         if os.environ['LC_CTYPE'] == 'UTF-8':  # Mac OS X
             #   Set the locale based on LANG environmental variable
-            locale.setlocale(locale.LC_ALL, os.environ['LANG'].split('.'))
+            locale.setlocale(locale.LC_ALL, os.environ.get('LANG', 'C'))
         else:
             raise exc
 
